@@ -10,7 +10,7 @@ export default function Home({ navigation, id, title }) {
         style={styles.button}
         onPress={() => navigation.navigate(screens.search, { id, title })}
       >
-        <Text>BUSCAR GIFS</Text>
+        <Text style={styles.textButton}>Buscar Gifs</Text>
       </TouchableOpacity>
     </View>
   );
@@ -29,6 +29,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#50c878",
     marginBottom: 60,
+  },
+
+  textButton: {
+    fontSize: 22,
+    fontWeight: 400,
   },
 
   button: {

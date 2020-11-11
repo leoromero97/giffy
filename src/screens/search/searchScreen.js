@@ -1,11 +1,21 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import Search from "./components/search/search";
 
 export default function SearchScreen() {
   return (
-    <View>
-      <Text>ACA VA EL SEACH</Text>
-      <Text> ACA VA EL CONTENEDOR QUE MUESTRA LOS GIFS</Text>
+    <View style={styles.container}>
+      <Search />
+      <Text style={styles.text}>ACA VA EL CONTENEDOR QUE MUESTRA LOS GIFS</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#121212",
+  },
+
+  text: { color: "#D8FFCC" },
+});

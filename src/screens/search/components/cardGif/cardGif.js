@@ -1,11 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-export default function Card({ img, title }) {
+export default function Card({ img, title, id }) {
   return (
     <View style={styles.container}>
       <Image style={styles.img} source={img} />
       <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{id}</Text>
     </View>
   );
 }

@@ -1,13 +1,14 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, FlatList } from "react-native";
+import { SafeAreaView, StyleSheet, FlatList, Text } from "react-native";
 import Card from "../cardGif/cardGif";
+import Error from "../../../error/error";
 
-export default function List({ gifs, onNexPage }) {
+export default function List({ gifs }) {
   const renderItem = (arrayItem) => {
     return (
       <Card
-        img={{ uri: arrayItem.item.img }}
-        title={arrayItem.item.Title}
+        img={{ uri: arrayItem.item.images.downsized_medium }}
+        title={arrayItem.item.title}
         id={arrayItem.item.id}
       />
     );
@@ -15,15 +16,15 @@ export default function List({ gifs, onNexPage }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={gifs}
-        renderItem={renderItem}
-        keyExtractor={(arrayItem) => arrayItem.id}
-        onEndReached={() => {
-          onNexPage();
-        }}
-        onEndReachedThreshold={0.8}
-      />
+      {!gifs ? (
+        <Error textError="Ups, no se encontraron gifs" />
+      ) : (
+        <FlatList
+          data={gifs}
+          renderItem={renderItem}
+          keyExtractor={(arrayItem) => arrayItem.id}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#121212",
+    alignItems: "center",
     paddingVertical: 16,
     paddingHorizontal: 10,
   },

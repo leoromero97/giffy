@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
   textButton: {
     fontSize: 22,
-    fontWeight: 400,
+    fontWeight: "bold",
   },
 
   button: {

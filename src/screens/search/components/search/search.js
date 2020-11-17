@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -11,6 +11,7 @@ export default function Search({ placeholder, onSearch, onTextNew }) {
   return (
     <View style={styles.container}>
       <TextInput
+        placeholderTextColor="#D8FFCC"
         style={styles.input}
         placeholder={placeholder}
         onChangeText={onTextNew}
@@ -37,12 +38,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     width: "100%",
     backgroundColor: "#5a5a5a",
+    paddingHorizontal: 16,
   },
   input: {
     height: 46,
     borderBottomColor: "#5a5a5a",
     borderBottomWidth: 1,
     flexGrow: 1,
+    color: "#D8FFCC",
+    fontSize: 18,
+ 
   },
-  img: { height: 30, width: 30 },
+  img: { height: 28, width: 28, },
 });
